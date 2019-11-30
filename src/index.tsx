@@ -1,16 +1,18 @@
 import React from "react"
+import ErrorBoundary from "./components/ErrorBoundary"
+import { BanquetTable } from "./types/BanquetTable"
+import { StyledBanquetTable } from "./style/StyledBanquetTable"
 
-const Banquet = (props: { text: string; color: string; height: number }) => {
-   const { color, text, height } = props
+const Banquet = ({ borders = "all", ...props }: BanquetTable) => {
    return (
-      <div
-         style={{
-            backgroundColor: color || "blue",
-            height: height + "px",
-         }}
-      >
-         {text}
-      </div>
+      <ErrorBoundary>
+         <StyledBanquetTable columns={2} borders={borders}>
+            <div>other text</div>
+            <div>other text</div>
+            <div>other text</div>
+            <div>other text</div>
+         </StyledBanquetTable>
+      </ErrorBoundary>
    )
 }
 
