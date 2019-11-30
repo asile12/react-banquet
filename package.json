@@ -1,0 +1,49 @@
+{
+   "name": "react-banquet",
+   "version": "0.1.0",
+   "description": "Data tables for React with css-grid",
+   "main": "build/index.js",
+   "scripts": {
+      "start": "webpack --watch",
+      "build": "webpack",
+      "test": "test"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/asile12/react-banquet.git"
+   },
+   "keywords": [
+      "react",
+      "table",
+      "data",
+      "data table",
+      "css grid",
+      "grid"
+   ],
+   "author": "",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/asile12/react-banquet/issues"
+   },
+   "homepage": "https://github.com/asile12/react-banquet#readme",
+   "peerDependencies": {
+      "react": "^16.12.0"
+   },
+   "dependencies": {
+      "react": "^16.12.0",
+      "webpack": "^4.41.2"
+   },
+   "devDependencies": {
+      "@types/react": "^16.9.13",
+      "babel-cli": "^6.26.0",
+      "babel-core": "^6.26.3",
+      "babel-loader": "^7.0.0",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-plugin-transform-react-jsx": "^6.24.1",
+      "babel-preset-env": "^1.7.0",
+      "source-map-loader": "^0.2.4",
+      "ts-loader": "^6.2.1",
+      "typescript": "^3.7.2",
+      "webpack-cli": "^3.3.10"
+   }
+}
