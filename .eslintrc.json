@@ -1,0 +1,89 @@
+{
+   "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "plugin:react/recommended"
+   ],
+   "plugins": ["react", "@typescript-eslint", "react-hooks"],
+   "env": {
+      "browser": true,
+      "jasmine": true,
+      "jest": true,
+      "es6": true,
+      "node": true
+   },
+   "settings": {
+      "react": {
+         "pragma": "React",
+         "version": "detect"
+      }
+   },
+   "parser": "@typescript-eslint/parser",
+   "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+         "jsx": true,
+         "impliedStrict": true
+      },
+      "ecmaVersion": 2018,
+      "project": "./tsconfig.json"
+   },
+   "rules": {
+      "indent": "off",
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "double"],
+      "semi": ["error", "never"],
+      "array-bracket-newline": ["warn", "consistent"],
+      "array-bracket-spacing": ["warn", "always"],
+      "array-element-newline": [
+         "error",
+         {
+            "multiline": true
+         }
+      ],
+      "block-scoped-var": "error",
+      "camelcase": "error",
+      "comma-dangle": ["error", "always-multiline"],
+      "no-await-in-loop": "error",
+      "no-console": ["warn"],
+      "default-case": "error",
+      "dot-notation": "error",
+      "dot-location": ["error", "property"],
+      "eqeqeq": "error",
+      "no-implicit-globals": "error",
+      "no-sequences": "error",
+      "no-unmodified-loop-condition": "error",
+      "no-unused-expressions": "error",
+      "require-await": "error",
+      "no-shadow": "error",
+      "no-array-constructor": "error",
+      "no-trailing-spaces": "error",
+      "no-duplicate-imports": "error",
+      "no-var": "error",
+      "prefer-arrow-callback": "error",
+      "prefer-const": "error",
+      "prefer-spread": "error",
+      "prefer-template": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-empty-interface": "warn",
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/member-delimiter-style": [
+         "warn",
+         {
+            "multiline": {
+               "delimiter": "none",
+               "requireLast": true
+            },
+            "singleline": {
+               "delimiter": "comma",
+               "requireLast": false
+            }
+         }
+      ]
+   }
+}
