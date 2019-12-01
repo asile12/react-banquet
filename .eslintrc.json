@@ -33,7 +33,6 @@
    "rules": {
       "indent": "off",
       "linebreak-style": ["error", "unix"],
-      "quotes": ["error", "double"],
       "semi": ["error", "never"],
       "array-bracket-newline": ["warn", "consistent"],
       "array-bracket-spacing": ["warn", "always"],
@@ -72,6 +71,13 @@
       "react/prop-types": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
+      "quotes": [
+         "warn",
+         "double",
+         {
+            "allowTemplateLiterals": true
+         }
+      ],
       "@typescript-eslint/member-delimiter-style": [
          "warn",
          {
