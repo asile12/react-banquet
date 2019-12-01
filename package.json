@@ -5,9 +5,10 @@
    "main": "build/index.js",
    "scripts": {
       "start": "webpack --watch",
-      "build": "yarn run lint && webpack",
+      "build": "yarn run lint && yarn run copycss && webpack",
       "test": "test",
-      "lint": "eslint . --ext .ts,.tsx"
+      "lint": "eslint . --ext .ts,.tsx",
+      "copycss": "rm -rf build/css && mkdir build/css && cp -r src/style/*.css build/css"
    },
    "repository": {
       "type": "git",
