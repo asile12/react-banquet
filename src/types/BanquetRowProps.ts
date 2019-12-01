@@ -1,3 +1,7 @@
+import { ReactNode } from "react"
+
 export interface BanquetRowProps {
-   children: React.ReactNode[]
+   children: ReactNode
+   header?: boolean
+   className?: string
 }

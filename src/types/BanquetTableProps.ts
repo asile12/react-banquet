@@ -1,6 +1,8 @@
 import { Border } from "./Border"
+import { ReactNode } from "react"
 
 export interface BanquetTableProps {
+   children: ReactNode
    borders?: Border
-   children: React.ReactNode[]
+   className?: string
 }

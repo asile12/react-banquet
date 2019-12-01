@@ -1,3 +1,7 @@
+import { ReactNode } from "react"
+
 export interface BanquetCellProps {
-   children?: string
+   children?: ReactNode
+   header?: boolean
+   className?: string
 }
