@@ -8,7 +8,10 @@ interface StyledBanquetTable {
 }
 export const StyledBanquetTable = styled.div<StyledBanquetTable>`
    ${props =>
-      props.borders === "all" || props.borders === "outer"
+      props.borders === "all" ||
+      props.borders === "outer" ||
+      props.borders === "horizontal-outer" ||
+      props.borders === "vertical-outer"
          ? css`
               border-style: solid;
            `
@@ -17,7 +20,8 @@ export const StyledBanquetTable = styled.div<StyledBanquetTable>`
       props.borders === "all" ||
       props.borders === "inner" ||
       props.borders === "vertical" ||
-      props.borders === "vertical-inner"
+      props.borders === "vertical-inner" ||
+      props.borders === "vertical-outer"
          ? css`
               & div:not(:nth-child(${props.columns}n)) {
                  border-right-style: solid;
@@ -29,6 +33,7 @@ export const StyledBanquetTable = styled.div<StyledBanquetTable>`
       props.borders === "all" ||
       props.borders === "inner" ||
       props.borders === "horizontal" ||
+      props.borders === "horizontal-outer" ||
       props.borders === "horizontal-inner"
          ? css`
               & div:not(:nth-child(-n + ${props.columns})) {

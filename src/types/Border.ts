@@ -7,3 +7,5 @@ export type Border =
    | "inner"
    | "horizontal-inner"
    | "vertical-inner"
+   | "horizontal-outer"
+   | "vertical-outer"
