@@ -6,7 +6,7 @@
    "scripts": {
       "start": "webpack --watch",
       "build": "yarn run lint && yarn run copycss && webpack",
-      "test": "test",
+      "test": "jest",
       "lint": "eslint . --ext .ts,.tsx",
       "copycss": "rm -rf build/css && mkdir build/css && cp -r src/style/*.css build/css"
    },
@@ -37,20 +37,26 @@
       "webpack": "^4.41.2"
    },
    "devDependencies": {
+      "@babel/cli": "^7.7.4",
+      "@babel/core": "^7.7.4",
+      "@babel/preset-env": "^7.7.4",
+      "@testing-library/jest-dom": "^4.2.4",
+      "@testing-library/react": "^9.3.2",
+      "@types/jest": "^24.0.23",
       "@types/react": "^16.9.13",
       "@types/styled-components": "^4.4.0",
       "@typescript-eslint/eslint-plugin": "^2.9.0",
       "@typescript-eslint/parser": "^2.9.0",
-      "babel-cli": "^6.26.0",
-      "babel-core": "^6.26.3",
       "babel-loader": "^7.0.0",
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-plugin-transform-react-jsx": "^6.24.1",
-      "babel-preset-env": "^1.7.0",
       "eslint": "^6.7.2",
       "eslint-plugin-react": "^7.17.0",
       "eslint-plugin-react-hooks": "^2.3.0",
+      "jest": "^24.9.0",
+      "react-dom": "^16.12.0",
       "source-map-loader": "^0.2.4",
+      "ts-jest": "^24.2.0",
       "ts-loader": "^6.2.1",
       "typescript": "^3.7.2",
       "webpack-cli": "^3.3.10"
