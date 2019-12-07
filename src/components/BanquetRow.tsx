@@ -3,7 +3,7 @@ import { BanquetRowProps } from "../types/BanquetRowProps"
 
 const BanquetRow = ({ children, header = false, className = "", ...props }: BanquetRowProps) => {
    let newChildren
-   if (header) {
+   if (header || className !== "") {
       newChildren = React.Children.map(children, (child: ReactElement) => {
          return React.cloneElement(child, {
             className: className,
