@@ -1,11 +1,12 @@
 import React from "react"
 import { BanquetCellProps } from "../types/BanquetCellProps"
+import { StyledBanquetCell } from "../style/StyledBanquetCell"
 
 const BanquetCell = ({ children, header = false, className = "", ...props }: BanquetCellProps) => {
    return (
-      <div className={`cell${header ? " header" : ""} ${className}`} {...props}>
+      <StyledBanquetCell className={`cell${header ? " header" : ""} ${className}`} {...props}>
          {children}
-      </div>
+      </StyledBanquetCell>
    )
 }
 
