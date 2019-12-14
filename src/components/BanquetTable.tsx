@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react"
-import ErrorBoundary from "./ErrorBoundary"
 import { BanquetTableProps } from "../types/BanquetTableProps"
 import { StyledBanquetTable } from "../style/StyledBanquetTable"
 
@@ -25,7 +24,6 @@ const BanquetTable = ({
    })
 
    return (
-      <ErrorBoundary>
          <StyledBanquetTable
             className={`banquet ${className}`}
             numberOfColumns={maxNumberOfCells}
@@ -34,7 +32,6 @@ const BanquetTable = ({
          >
             {newChildren}
          </StyledBanquetTable>
-      </ErrorBoundary>
    )
 }
 
