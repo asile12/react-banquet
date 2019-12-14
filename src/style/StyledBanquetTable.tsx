@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 import { Border } from "../types/Border"
 
 interface StyledBanquetTable {
-   columns: number
+   numberOfColumns: number
    className?: string
    borders: Border
 }
@@ -23,7 +23,7 @@ export const StyledBanquetTable = styled.div<StyledBanquetTable>`
       props.borders === "vertical-inner" ||
       props.borders === "vertical-outer"
          ? css`
-              & div:not(:nth-child(${props.columns}n)) {
+              & div:not(:nth-child(${props.numberOfColumns}n)) {
                  border-right-style: solid;
               }
            `
@@ -36,7 +36,7 @@ export const StyledBanquetTable = styled.div<StyledBanquetTable>`
       props.borders === "horizontal-outer" ||
       props.borders === "horizontal-inner"
          ? css`
-              & div:not(:nth-child(-n + ${props.columns})) {
+              & div:not(:nth-child(-n + ${props.numberOfColumns})) {
                  border-top-style: solid;
               }
            `
@@ -57,5 +57,5 @@ export const StyledBanquetTable = styled.div<StyledBanquetTable>`
               `
             : ""}
    display: grid;
-   grid-template-columns: repeat(${props => props.columns}, auto);
+   grid-template-columns: repeat(${props => props.numberOfColumns}, auto);
 `
