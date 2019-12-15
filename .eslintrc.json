@@ -34,13 +34,8 @@
       "linebreak-style": ["error", "unix"],
       "semi": ["error", "never"],
       "array-bracket-newline": ["warn", "consistent"],
-      "array-bracket-spacing": ["warn", "always"],
-      "array-element-newline": [
-         "error",
-         {
-            "multiline": true
-         }
-      ],
+      "array-bracket-spacing": ["warn", "never"],
+      "array-element-newline": ["error", "consistent"],
       "block-scoped-var": "error",
       "camelcase": "error",
       "comma-dangle": [
