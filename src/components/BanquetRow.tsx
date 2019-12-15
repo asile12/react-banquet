@@ -6,15 +6,18 @@ const BanquetRow = ({
    children,
    header = false,
    className = "",
-   maxNumberOfCells,
+   maxNumberOfCells = 1,
+   columnClassNames,
    ...props
 }: BanquetRowProps) => {
    const numberOfChildren = React.Children.count(children)
-   const newChildren = React.Children.map(children, (child: ReactElement) => {
+   const newChildren = React.Children.map(children, (child: ReactElement, index) => {
       return React.cloneElement(child, {
-         className: `${className} ${
-            child.props.className !== undefined ? child.props.className : ""
-         }`,
+         className: [
+            columnClassNames !== undefined ? columnClassNames[index] : "",
+            className,
+            child.props.className !== undefined ? child.props.className : "",
+         ].join(" "),
          header: header,
       })
    })

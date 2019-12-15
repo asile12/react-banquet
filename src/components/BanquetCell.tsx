@@ -4,7 +4,13 @@ import { StyledBanquetCell } from "../style/StyledBanquetCell"
 
 const BanquetCell = ({ children, header = false, className = "", ...props }: BanquetCellProps) => {
    return (
-      <StyledBanquetCell className={`cell${header ? " header" : ""} ${className}`} {...props}>
+      <StyledBanquetCell
+         className={["cell", header ? "header" : "", className]
+            .join(" ")
+            .replace(/\s+/g, " ")
+            .trim()}
+         {...props}
+      >
          {children}
       </StyledBanquetCell>
    )

@@ -24,21 +24,30 @@ const BanquetTable = ({
       throw new CustomError(1000, "The number of cells and the number of columnProps don't match.")
    }
 
-   // pass down the max number of cells to the Row components
-   const newChildren = React.Children.map(children, (child: ReactElement) => {
-      return React.cloneElement(child, {
-         maxNumberOfCells: maxNumberOfCells,
-      })
-   })
-
    // substitute undefined columnProps
    if (columnProps !== undefined) {
       columnProps.forEach((column, index) => {
          columnProps[index] = {
             width: column.width !== undefined ? column.width : "auto",
+            className: column.className !== undefined ? column.className : "",
          }
       })
    }
+
+   // pass down props to the Row components
+   const newChildren =
+      columnProps !== undefined
+         ? React.Children.map(children, (child: ReactElement) => {
+                 return React.cloneElement(child, {
+                    maxNumberOfCells: maxNumberOfCells,
+                    columnClassNames: columnProps.map(column => column.className),
+                 })
+           })
+         : React.Children.map(children, (child: ReactElement) => {
+                 return React.cloneElement(child, {
+                    maxNumberOfCells: maxNumberOfCells,
+                 })
+           })
 
    // create column width string
    let columnWidths = ""

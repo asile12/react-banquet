@@ -5,4 +5,5 @@ export interface BanquetRowProps {
    header?: boolean
    className?: string
    maxNumberOfCells?: number
+   columnClassNames?: string[]
 }
