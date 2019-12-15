@@ -67,5 +67,14 @@ On BanquetRow and BanquetCell, the className will affect the cells.
 BanquetTable accepts a **columnProps** property, which is an array of the same length as the number of columns.
 Every element in the array contains the properties for said column.  
 The properties you can set are:
-- **width**: accepts all values accepted by css-grid, such as px, %, fr, minmax(), auto. For a complete reference see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
+- **width**: accepts all values accepted by css-grid, such as px, %, fr, minmax(), auto. For a complete reference see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns). Defaults to "auto"
 - **className**: a className to apply to the elements of a single column.
+
+```
+<BanquetTable columnProps=[{width:"100px"},{className:"my-class"}]>
+  <BanquetRow>
+    <BanquetCell>content<BanquetCell/>
+    <BanquetCell>content<BanquetCell/>
+  <BanquetRow/>
+<BanquetTable />
+```
