@@ -5,6 +5,7 @@ interface StyledBanquetTable {
    numberOfColumns: number
    className?: string
    borders: Border
+   columnWidths: string
 }
 export const StyledBanquetTable = styled.div<StyledBanquetTable>`
    ${props =>
@@ -57,5 +58,5 @@ export const StyledBanquetTable = styled.div<StyledBanquetTable>`
               `
             : ""}
    display: grid;
-   grid-template-columns: repeat(${props => props.numberOfColumns}, auto);
+   grid-template-columns: ${props => props.columnWidths};
 `
