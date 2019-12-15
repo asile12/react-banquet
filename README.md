@@ -1,4 +1,5 @@
-![CircleCI](https://img.shields.io/circleci/build/github/asile12/react-banquet/master?label=circleCI&style=flat-square&token=4c5ae73467df9c656943ccc6e6cc4f125d50e27a)
+[![Build Status](https://api.travis-ci.org/asile12/react-banquet.svg?branch=master)](https://travis-ci.com/asile12/react-banquet)
+[![CircleCI](https://circleci.com/gh/asile12/react-banquet.svg?style=svg)](https://circleci.com/gh/asile12/react-banquet)
 
 ## Installation
 `npm install react-banquet`
@@ -9,7 +10,7 @@ or
 Banquet depends on **react >16.8** and **styled-components**, so you will have to have those installed.
 
 ## Basic Table
-```
+```JSX
 import {BanquetTable, BanquetRow, BanquetCell} from "react-banquet"
 
 <BanquetTable>
@@ -25,7 +26,7 @@ import {BanquetTable, BanquetRow, BanquetCell} from "react-banquet"
 
 You can set which borders to show with the **borders** property on BanquetTable. Defaults to "all".
 
-```
+```JSX
 <BanquetTable borders="none">
 ```
 
@@ -44,7 +45,7 @@ You can set which borders to show with the **borders** property on BanquetTable.
 
 You can set a **header** property on BanquetRow or BanquetCell. This will add a "header" className to a single cell or all the cells in a row.
 
-```
+```JSX
 <BanquetTable>
   <BanquetRow header>
     <BanquetCell>my header 1<BanquetCell/>
@@ -70,7 +71,7 @@ The properties you can set are:
 - **width**: accepts all values accepted by css-grid, such as px, %, fr, minmax(), auto. For a complete reference see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns). Defaults to "auto"
 - **className**: a className to apply to the elements of a single column.
 
-```
+```JSX
 <BanquetTable columnProps=[{width:"100px"},{className:"my-class"}]>
   <BanquetRow>
     <BanquetCell>content<BanquetCell/>
