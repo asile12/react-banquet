@@ -1,6 +1,7 @@
-[![Build Status](https://api.travis-ci.org/asile12/react-banquet.svg?branch=master)](https://travis-ci.com/asile12/react-banquet)
-[![CircleCI](https://circleci.com/gh/asile12/react-banquet.svg?style=svg)](https://circleci.com/gh/asile12/react-banquet)
-
+[![CircleCI](https://img.shields.io/circleci/build/github/asile12/react-banquet/master?label=CircleCI&style=flat-square&token=4c5ae73467df9c656943ccc6e6cc4f125d50e27a)](https://circleci.com/gh/asile12/react-banquet)
+[![Travis (.com)](https://img.shields.io/travis/com/asile12/react-banquet?label=TravisCI&style=flat-square)](https://travis-ci.com/asile12/react-banquet)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/commits/master)
 ## Installation
 `npm install react-banquet`
 or
