@@ -4,11 +4,13 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/commits/master)
 [![Codecov](https://img.shields.io/codecov/c/github/asile12/react-banquet?style=flat-square)](https://codecov.io/gh/asile12/react-banquet)
 ## Installation
+
 `npm install react-banquet`
 or
 `yarn add react-banquet`
 
 ## Peer dependencies
+
 Banquet depends on **react >16.8** and **styled-components**, so you will have to have those installed.
 
 ## Basic Table
@@ -63,16 +65,18 @@ This will add a "header" className to a single cell or all the cells in a row.
 
 ## ClassNames
 
-The className property can be set on BanquetTable, BanquetRow or BanquetCell.
-On BanquetTable, the className will affect the *table outer div*.
+The className property can be set on BanquetTable, BanquetRow or BanquetCell.  
+On BanquetTable, the className will affect the _table outer div_.  
 On BanquetRow and BanquetCell, the className will affect the cells.
 
 ## Column Properties
+
 BanquetTable accepts a **columnProps** property, which is an array of the same length as the number of columns.
 Every element in the array contains the properties for said column.  
 The properties you can set are:
-- **width**: accepts all values accepted by css-grid, such as px, %, fr, minmax(), auto. For a complete reference see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns). Defaults to "auto"
-- **className**: a className to apply to the elements of a single column.
+
+-  **width**: accepts all values accepted by css-grid, such as px, %, fr, minmax(), auto. For a complete reference see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns). Defaults to "auto"
+-  **className**: a className to apply to the elements of a single column.
 
 ```JSX
 const columns = [
@@ -92,6 +96,20 @@ const columns = [
   <BanquetRow/>
 <BanquetTable />
 ```
+
+## Styling with stylesheets
+
+Banquet does not include any unnecessary styling, so you can use whatever you please.  
+However, you can import one of the default stylesheets to get you started.
+
+```
+import "react-banquet/build/css/react-banquet-minimal-style.css";
+```
+
+Or, instead of a default stylesheet you can write your own. We have assigned some default classes to make the job easier.
+
+BanquetTable: `.banquet`  
+BanquetCell : `.banquet .cell`
 
 ## API reference
 
@@ -113,6 +131,7 @@ const columns = [
 | className | string            |         | A className to apply to all the cells in that row          |
 
 ### BanquetCell
+
 | Name      | Type    | Default | Description                        |
 | --------- | ------- | ------- | ---------------------------------- |
 | children  | any     |         | The content of the cell            |
