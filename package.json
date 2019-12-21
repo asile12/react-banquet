@@ -6,7 +6,7 @@
    "scripts": {
       "start": "webpack --watch",
       "build": "yarn run lint && yarn run copycss && webpack",
-      "test": "jest",
+      "test": "jest && codecov",
       "lint": "eslint . --ext .ts,.tsx",
       "copycss": "rm -rf build/css && mkdir build/css && cp -r src/style/*.css build/css"
    },
@@ -46,6 +46,7 @@
       "babel-loader": "^7.0.0",
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-plugin-transform-react-jsx": "^6.24.1",
+      "codecov": "^3.6.1",
       "eslint": "^6.7.2",
       "eslint-plugin-react": "^7.17.0",
       "eslint-plugin-react-hooks": "^2.3.0",
