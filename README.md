@@ -45,7 +45,8 @@ You can set which borders to show with the **borders** property on BanquetTable.
 
 ## Headers
 
-You can set a **header** property on BanquetRow or BanquetCell. This will add a "header" className to a single cell or all the cells in a row.
+You can set a **header** property on BanquetRow or BanquetCell.  
+This will add a "header" className to a single cell or all the cells in a row.
 
 ```JSX
 <BanquetTable>
@@ -74,10 +75,46 @@ The properties you can set are:
 - **className**: a className to apply to the elements of a single column.
 
 ```JSX
-<BanquetTable columnProps=[{width:"100px"},{className:"my-class"}]>
+const columns = [
+  { 
+    width:"100px", 
+  },
+  { 
+    width:"250px",
+    className:"my-class" 
+  },
+]
+
+<BanquetTable columnProps={columns}>
   <BanquetRow>
     <BanquetCell>content<BanquetCell/>
     <BanquetCell>content<BanquetCell/>
   <BanquetRow/>
 <BanquetTable />
 ```
+
+## API reference
+
+### BanquetTable
+
+| Name        | Type                                                                                                                                                                                        | Default                        | Description                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------- |
+| children    | BanquetRow nodes                                                                                                                                                                            |                                | The rows of the table                    |
+| borders     | "all" &#124; "none" &#124; "horizontal" &#124; "vertical" &#124; "outer" &#124; "inner" &#124; "horizontal-inner" &#124; "vertical-inner" &#124; "horizontal-outer" &#124; "vertical-outer" | "all"                          | The borders which are to be made visible |
+| columnProps | { width: string className: string }[]                                                                                                                                                       | width: auto                    | The columns' properties                  |
+| className | string            |         | A className to apply to the table          |
+
+### BanquetRow
+
+| Name      | Type              | Default | Description                                                |
+| --------- | ----------------- | ------- | ---------------------------------------------------------- |
+| children  | BanquetCell nodes |         | The row cells                                              |
+| header    | boolean           | false   | Whether to apply header styles to all the cells in the row |
+| className | string            |         | A className to apply to all the cells in that row          |
+
+### BanquetCell
+| Name      | Type    | Default | Description                        |
+| --------- | ------- | ------- | ---------------------------------- |
+| children  | any     |         | The content of the cell            |
+| header    | boolean | false   | Whether to apply header styles     |
+| className | string  |         | The className to apply to the cell |
