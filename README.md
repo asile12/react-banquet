@@ -2,6 +2,7 @@
 [![Travis (.com)](https://img.shields.io/travis/com/asile12/react-banquet?label=TravisCI&style=flat-square)](https://travis-ci.com/asile12/react-banquet)
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/releases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/commits/master)
+[![Codecov](https://img.shields.io/codecov/c/github/asile12/react-banquet?style=flat-square)](https://codecov.io/gh/asile12/react-banquet)
 ## Installation
 `npm install react-banquet`
 or
