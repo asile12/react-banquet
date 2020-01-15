@@ -8,6 +8,8 @@ const BanquetTable = ({
    className = "",
    children,
    columnProps,
+   hAlign,
+   vAlign,
    ...props
 }: BanquetTableProps) => {
    // calculate the max number of cells in all the rows
@@ -24,29 +26,38 @@ const BanquetTable = ({
       throw new CustomError(1000, "The number of cells and the number of columnProps don't match.")
    }
 
-   // substitute undefined columnProps
+   // substitute undefined columnProps with default value
    if (columnProps !== undefined) {
       columnProps.forEach((column, index) => {
          columnProps[index] = {
             width: column.width !== undefined ? column.width : "auto",
             className: column.className !== undefined ? column.className : "",
+            vAlign: column.vAlign,
+            hAlign: column.hAlign,
          }
       })
    }
-
    // pass down props to the Row components
    const newChildren =
       columnProps !== undefined
-         ? React.Children.map(children, (child: ReactElement) => {
-                 return React.cloneElement(child, {
-                    maxNumberOfCells: maxNumberOfCells,
-                    columnClassNames: columnProps.map(column => column.className),
-                 })
+         ? React.Children.map(children, (row: ReactElement) => {
+              return React.cloneElement(row, {
+                 maxNumberOfCells: maxNumberOfCells,
+                 hAlign: row.props.hAlign !== undefined ? row.props.hAlign : hAlign,
+                 vAlign: row.props.vAlign !== undefined ? row.props.vAlign : vAlign,
+                 columnClassNames: columnProps.map(column => column.className),
+                 columnHAlign: columnProps.map(column => column.hAlign),
+                 columnVAlign: columnProps.map(column => {
+                    return column.vAlign
+                 }),
+              })
            })
-         : React.Children.map(children, (child: ReactElement) => {
-                 return React.cloneElement(child, {
-                    maxNumberOfCells: maxNumberOfCells,
-                 })
+         : React.Children.map(children, (row: ReactElement) => {
+              return React.cloneElement(row, {
+                 maxNumberOfCells: maxNumberOfCells,
+                 hAlign: row.props.hAlign !== undefined ? row.props.hAlign : hAlign,
+                 vAlign: row.props.vAlign !== undefined ? row.props.vAlign : vAlign,
+              })
            })
 
    // create column width string
