@@ -8,8 +8,8 @@ export interface BanquetRowProps {
    className?: string
    maxNumberOfCells?: number
    columnClassNames?: string[]
-   vAlign?: VerticalAlign
-   hAlign?: HorizontalAlign
+   vAlign: VerticalAlign
+   hAlign: HorizontalAlign
    columnHAlign?: (HorizontalAlign | undefined)[]
    columnVAlign?: (VerticalAlign | undefined)[]
 }

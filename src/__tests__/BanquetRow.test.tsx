@@ -1,8 +1,9 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import BanquetRow from "../components/BanquetRow"
+import BanquetRow from "../components/BanquetRowWrapper"
 import "@testing-library/jest-dom/extend-expect"
 import BanquetCell from "../components/BanquetCell"
+import BanquetTable from "../components/BanquetTable"
 
 describe("Banquet Row", () => {
    it("does not render a DOM node", () => {
@@ -17,9 +18,11 @@ describe("Banquet Row", () => {
    it("forwards 'header' prop", () => {
       const text = "some text"
       const { queryByText } = render(
-         <BanquetRow header>
-            <BanquetCell>{text}</BanquetCell>
-         </BanquetRow>
+         <BanquetTable>
+            <BanquetRow header>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
       )
       expect(queryByText(text)).toHaveClass("cell", "header")
    })
@@ -27,9 +30,11 @@ describe("Banquet Row", () => {
    it("forwards 'className' prop", () => {
       const text = "some text"
       const { queryByText } = render(
-         <BanquetRow className="testclass">
-            <BanquetCell>{text}</BanquetCell>
-         </BanquetRow>
+         <BanquetTable>
+            <BanquetRow className="testclass">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
       )
       expect(queryByText(text)).toHaveClass("cell", "testclass")
    })

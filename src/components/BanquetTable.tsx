@@ -2,6 +2,7 @@ import React, { ReactElement } from "react"
 import { BanquetTableProps } from "../types/BanquetTableProps"
 import { StyledBanquetTable } from "../style/StyledBanquetTable"
 import { CustomError } from "../errorHandling/CustomError"
+import BanquetRow from "./BanquetRow"
 
 const BanquetTable = ({
    borders = "all",
@@ -37,27 +38,37 @@ const BanquetTable = ({
          }
       })
    }
-   // pass down props to the Row components
+   // convert BanquetRowWrapper to BanquetRow components
    const newChildren =
       columnProps !== undefined
          ? React.Children.map(children, (row: ReactElement) => {
-              return React.cloneElement(row, {
-                 maxNumberOfCells: maxNumberOfCells,
-                 hAlign: row.props.hAlign !== undefined ? row.props.hAlign : hAlign,
-                 vAlign: row.props.vAlign !== undefined ? row.props.vAlign : vAlign,
-                 columnClassNames: columnProps.map(column => column.className),
-                 columnHAlign: columnProps.map(column => column.hAlign),
-                 columnVAlign: columnProps.map(column => {
-                    return column.vAlign
-                 }),
-              })
+              return (
+                 <BanquetRow
+                    maxNumberOfCells={maxNumberOfCells}
+                    hAlign={row.props.hAlign !== undefined ? row.props.hAlign : hAlign}
+                    vAlign={row.props.vAlign !== undefined ? row.props.vAlign : vAlign}
+                    columnClassNames={columnProps.map(column => column.className)}
+                    columnHAlign={columnProps.map(column => column.hAlign)}
+                    columnVAlign={columnProps.map(column => column.vAlign)}
+                    header={row.props.header}
+                    className={row.props.className}
+                 >
+                    {row.props.children}
+                 </BanquetRow>
+              )
            })
          : React.Children.map(children, (row: ReactElement) => {
-              return React.cloneElement(row, {
-                 maxNumberOfCells: maxNumberOfCells,
-                 hAlign: row.props.hAlign !== undefined ? row.props.hAlign : hAlign,
-                 vAlign: row.props.vAlign !== undefined ? row.props.vAlign : vAlign,
-              })
+              return (
+                 <BanquetRow
+                    maxNumberOfCells={maxNumberOfCells}
+                    hAlign={row.props.hAlign !== undefined ? row.props.hAlign : hAlign}
+                    vAlign={row.props.vAlign !== undefined ? row.props.vAlign : vAlign}
+                    header={row.props.header}
+                    className={row.props.className}
+                 >
+                    {row.props.children}
+                 </BanquetRow>
+              )
            })
 
    // create column width string

@@ -2,7 +2,7 @@ import React from "react"
 import { render } from "@testing-library/react"
 import BanquetTable from "../components/BanquetTable"
 import "@testing-library/jest-dom/extend-expect"
-import BanquetRow from "../components/BanquetRow"
+import BanquetRow from "../components/BanquetRowWrapper"
 import BanquetCell from "../components/BanquetCell"
 import { CustomError } from "../errorHandling/CustomError"
 
@@ -78,7 +78,6 @@ describe("Banquet Table: style tests", () => {
       expect(getByTestId("table")).toHaveStyle("grid-template-columns: 100px 2fr")
    })
    it("passes down classNames defined in columnProps", () => {
-      const classTest = "test"
       const { getByText } = render(
          <BanquetTable
             data-testid="table"
