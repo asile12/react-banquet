@@ -4,7 +4,7 @@ import { HorizontalAlign } from "./HorizontalAlign"
 
 export interface BanquetRowProps {
    children: ReactNode
-   header?: boolean
+   header: boolean
    className?: string
    maxNumberOfCells?: number
    columnClassNames?: string[]

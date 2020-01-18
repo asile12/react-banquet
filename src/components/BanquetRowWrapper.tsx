@@ -3,7 +3,7 @@ import { BanquetRowWrapperProps } from "../types/BanquetRowWrapperProps"
 
 const BanquetRow = ({
    children,
-   header = false,
+   header,
    className = "",
    hAlign,
    vAlign,

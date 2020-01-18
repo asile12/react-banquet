@@ -4,7 +4,7 @@ import BanquetCell from "./BanquetCell"
 
 const BanquetRow = ({
    children,
-   header = false,
+   header,
    className = "",
    maxNumberOfCells = 1,
    columnClassNames,
