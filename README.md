@@ -3,6 +3,7 @@
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/releases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/asile12/react-banquet?style=flat-square)](https://github.com/asile12/react-banquet/commits/master)
 [![Codecov](https://img.shields.io/codecov/c/github/asile12/react-banquet?style=flat-square)](https://codecov.io/gh/asile12/react-banquet)
+
 ## Installation
 
 `npm install react-banquet`
@@ -11,9 +12,10 @@ or
 
 ## Peer dependencies
 
-Banquet depends on **react >16.8** and **styled-components**, so you will have to have those installed.
+Banquet depends on **react >=16.8** and **styled-components**, so you will have to have those installed.
 
 ## Basic Table
+
 ```JSX
 import {BanquetTable, BanquetRow, BanquetCell} from "react-banquet"
 
@@ -69,23 +71,34 @@ The className property can be set on BanquetTable, BanquetRow or BanquetCell.
 On BanquetTable, the className will affect the _table outer div_.  
 On BanquetRow and BanquetCell, the className will affect the cells.
 
+## Horizontal and vertical alignment
+
+BanquetTable, BanquetRow and BanquetCell all accept a _hAlign_ (horizontal alignment) and _vAlign_ (vertical alignment) property. Defaults to _center_.
+You can also set _hAlign_ and _vAlign_ for a whole column (see [Column Properties](#Column-Properties) below).
+
+When you set _hAlign_ and _vAlign_ on different components, values are evaluated following the rule below (">" is used with the meaning of "takes precedence over"):
+**cell alignment** > **column alignment** > **row alignment** > **table alignment**.
+
 ## Column Properties
 
-BanquetTable accepts a **columnProps** property, which is an array of the same length as the number of columns.
+BanquetTable accepts a _columnProps_ property, which is an array of the same length as the number of columns.
 Every element in the array contains the properties for said column.  
 The properties you can set are:
 
--  **width**: accepts all values accepted by css-grid, such as px, %, fr, minmax(), auto. For a complete reference see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns). Defaults to "auto"
+-  **width**: accepts all values accepted by css property "display: grid", such as px, %, fr, minmax(), auto. For a complete reference see [the official docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns). Defaults to "auto"
 -  **className**: a className to apply to the elements of a single column.
+-  **hAlign**: the column's cells' horizontal alignment. Can be set to _right_, _left_ or _center_.
+-  **vAlign**: the column's cells' vertical alignment. Can be set to _top_, _bottom_ or _center_.
 
 ```JSX
 const columns = [
-  { 
-    width:"100px", 
+  {
+    width:"100px",
+    hAlign: "left",
   },
-  { 
+  {
     width:"250px",
-    className:"my-class" 
+    className:"my-class"
   },
 ]
 
@@ -106,34 +119,42 @@ However, you can import one of the default stylesheets to get you started.
 import "react-banquet/build/css/react-banquet-minimal-style.css";
 ```
 
-Or, instead of a default stylesheet you can write your own. We have assigned some default classes to make the job easier.
+Or, instead of a default stylesheet you can write your own. We have assigned some default classes to all the elements to make the job easier.
 
 BanquetTable: `.banquet`  
 BanquetCell : `.banquet .cell`
 
-## API reference
+# API reference
+
+The ? mark refers to an optional property.
 
 ### BanquetTable
 
-| Name        | Type                                                                                                                                                                                        | Default                        | Description                              |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------- |
-| children    | BanquetRow nodes                                                                                                                                                                            |                                | The rows of the table                    |
-| borders     | "all" &#124; "none" &#124; "horizontal" &#124; "vertical" &#124; "outer" &#124; "inner" &#124; "horizontal-inner" &#124; "vertical-inner" &#124; "horizontal-outer" &#124; "vertical-outer" | "all"                          | The borders which are to be made visible |
-| columnProps | { width: string className: string }[]                                                                                                                                                       | width: auto                    | The columns' properties                  |
-| className | string            |         | A className to apply to the table          |
+| Name         | Type                                                                                                                                                                                                         | Default                                           | Description                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------ |
+| children     | BanquetRow nodes                                                                                                                                                                                             |                                                   | The rows of the table                      |
+| borders?     | "all" &#124; "none" &#124; "horizontal" &#124; "vertical" &#124; "outer" &#124; "inner" &#124;<br/>"horizontal-inner" &#124; "vertical-inner" &#124; "horizontal-outer" &#124; "vertical-outer"              | "all"                                             | The visible borders                        |
+| columnProps? | { <br/>&nbsp;&nbsp;width?: string<br/>&nbsp;&nbsp;className?: string<br/>&nbsp;&nbsp;hAlign?: "left" &#124; "center" &#124; "right"<br/>&nbsp;&nbsp;vAlign?: "top" &#124; "center" &#124; "bottom" <br/>}[ ] | width: auto<br/>hAlign: center<br/>vAlign: center | The columns' properties                    |
+| className?   | string                                                                                                                                                                                                       |                                                   | A className to apply to the table          |
+| hAlign?      | "left" &#124; "center" &#124; "right"                                                                                                                                                                        | "center"                                          | Horizontal alignment to apply to the table |
+| vAlign?      | "top" &#124; "center" &#124; "bottom"                                                                                                                                                                        | "center"                                          | Vertical alignment to apply to the table   |
 
 ### BanquetRow
 
-| Name      | Type              | Default | Description                                                |
-| --------- | ----------------- | ------- | ---------------------------------------------------------- |
-| children  | BanquetCell nodes |         | The row cells                                              |
-| header    | boolean           | false   | Whether to apply header styles to all the cells in the row |
-| className | string            |         | A className to apply to all the cells in that row          |
+| Name       | Type                                  | Default  | Description                                                |
+| ---------- | ------------------------------------- | -------- | ---------------------------------------------------------- |
+| children   | BanquetCell nodes                     |          | The row cells                                              |
+| header?    | boolean                               | false    | Whether to apply header styles to all the cells in the row |
+| className? | string                                |          | A className to apply to all the cells in that row          |
+| hAlign?    | "left" &#124; "center" &#124; "right" | "center" | Horizontal alignment to apply to the row                   |
+| vAlign?    | "top" &#124; "center" &#124; "bottom" | "center" | Vertical alignment to apply to the row                     |
 
 ### BanquetCell
 
-| Name      | Type    | Default | Description                        |
-| --------- | ------- | ------- | ---------------------------------- |
-| children  | any     |         | The content of the cell            |
-| header    | boolean | false   | Whether to apply header styles     |
-| className | string  |         | The className to apply to the cell |
+| Name      | Type                                  | Default  | Description                               |
+| --------- | ------------------------------------- | -------- | ----------------------------------------- |
+| children  | any                                   |          | The content of the cell                   |
+| header    | boolean                               | false    | Whether to apply header styles            |
+| className | string                                |          | The className to apply to the cell        |
+| hAlign?   | "left" &#124; "center" &#124; "right" | "center" | Horizontal alignment to apply to the cell |
+| vAlign?   | "top" &#124; "center" &#124; "bottom" | "center" | Vertical alignment to apply to the cell   |
