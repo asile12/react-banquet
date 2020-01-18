@@ -38,4 +38,67 @@ describe("Banquet Row", () => {
       )
       expect(queryByText(text)).toHaveClass("cell", "testclass")
    })
+
+   it("left hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable>
+            <BanquetRow hAlign="left">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
+
+   it("right hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable>
+            <BanquetRow hAlign="right">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("justify-content: flex-end")
+   })
+
+   it("top vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable>
+            <BanquetRow vAlign="top">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-start")
+   })
+
+   it("bottom vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable>
+            <BanquetRow vAlign="bottom">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+   })
+
+   it("cell align overwrites row align", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable>
+            <BanquetRow vAlign="top" hAlign="right">
+               <BanquetCell vAlign="bottom" hAlign="left">
+                  {text}
+               </BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
 })

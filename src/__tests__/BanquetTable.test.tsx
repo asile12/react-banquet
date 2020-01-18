@@ -94,6 +94,140 @@ describe("Banquet Table: style tests", () => {
       expect(getByText("cell2")).toHaveClass("class2")
       expect(getByText("cell2")).not.toHaveClass("class1")
    })
+   it("table left hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable hAlign="left">
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
+
+   it("table right hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable hAlign="right">
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("justify-content: flex-end")
+   })
+
+   it("table top vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable vAlign="top">
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-start")
+   })
+
+   it("table bottom vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable vAlign="bottom">
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+   })
+
+   it("column left hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable columnProps={[{ hAlign: "left" }]}>
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
+
+   it("table right hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable columnProps={[{ hAlign: "right" }]}>
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("justify-content: flex-end")
+   })
+
+   it("table top vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable columnProps={[{ vAlign: "top" }]}>
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-start")
+   })
+
+   it("table bottom vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable columnProps={[{ vAlign: "bottom" }]}>
+            <BanquetRow>
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+   })
+
+   it("row align overwrites table align", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable vAlign="top" hAlign="right">
+            <BanquetRow vAlign="bottom" hAlign="left">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
+   it("column align overwrites row align", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable columnProps={[{ vAlign: "top", hAlign: "right" }]}>
+            <BanquetRow vAlign="bottom" hAlign="left">
+               <BanquetCell>{text}</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-start")
+      expect(getByText(text)).toHaveStyle("justify-content: flex-end")
+   })
+   it("cell align overwrites column align", () => {
+      const text = "some text"
+      const { getByText } = render(
+         <BanquetTable columnProps={[{ vAlign: "top", hAlign: "right" }]}>
+            <BanquetRow>
+               <BanquetCell vAlign="bottom" hAlign="left">
+                  {text}
+               </BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
 })
 
 describe("Banquet Table: other tests", () => {

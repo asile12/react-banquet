@@ -45,8 +45,10 @@ const BanquetTable = ({
               return (
                  <BanquetRow
                     maxNumberOfCells={maxNumberOfCells}
-                    hAlign={row.props.hAlign !== undefined ? row.props.hAlign : hAlign}
-                    vAlign={row.props.vAlign !== undefined ? row.props.vAlign : vAlign}
+                    tableHAlign={hAlign}
+                    tableVAlign={vAlign}
+                    rowHAlign={row.props.hAlign}
+                    rowVAlign={row.props.vAlign}
                     columnClassNames={columnProps.map(column => column.className)}
                     columnHAlign={columnProps.map(column => column.hAlign)}
                     columnVAlign={columnProps.map(column => column.vAlign)}
@@ -61,8 +63,10 @@ const BanquetTable = ({
               return (
                  <BanquetRow
                     maxNumberOfCells={maxNumberOfCells}
-                    hAlign={row.props.hAlign !== undefined ? row.props.hAlign : hAlign}
-                    vAlign={row.props.vAlign !== undefined ? row.props.vAlign : vAlign}
+                    tableHAlign={hAlign}
+                    tableVAlign={vAlign}
+                    rowHAlign={row.props.hAlign}
+                    rowVAlign={row.props.vAlign}
                     header={row.props.header}
                     className={row.props.className}
                  >

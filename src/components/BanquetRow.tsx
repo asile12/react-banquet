@@ -8,8 +8,10 @@ const BanquetRow = ({
    className = "",
    maxNumberOfCells = 1,
    columnClassNames,
-   vAlign,
-   hAlign,
+   tableVAlign,
+   tableHAlign,
+   rowVAlign,
+   rowHAlign,
    columnHAlign,
    columnVAlign,
    ...props
@@ -28,13 +30,17 @@ const BanquetRow = ({
                ? cell.props.hAlign
                : columnHAlign !== undefined && columnHAlign[index] !== undefined
                ? columnHAlign[index]
-               : hAlign,
+               : rowHAlign !== undefined
+               ? rowHAlign
+               : tableHAlign,
          vAlign:
             cell.props.vAlign !== undefined
                ? cell.props.vAlign
                : columnVAlign !== undefined && columnVAlign[index] !== undefined
                ? columnVAlign[index]
-               : vAlign,
+               : rowVAlign !== undefined
+               ? rowVAlign
+               : tableVAlign,
       })
    })
    const childrenToAdd = [] as ReactElement[]
@@ -43,8 +49,8 @@ const BanquetRow = ({
          <BanquetCell
             header={header}
             className={className}
-            vAlign={vAlign}
-            hAlign={hAlign}
+            vAlign={tableVAlign}
+            hAlign={tableHAlign}
             key={`added${i}`}
          ></BanquetCell>
       )

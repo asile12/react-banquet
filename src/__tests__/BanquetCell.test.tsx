@@ -44,4 +44,34 @@ describe("Banquet Cell", () => {
       const { getByText } = render(<BanquetCell>{text}</BanquetCell>)
       expect(getByText(text)).not.toHaveClass("header")
    })
+   it("hAlign defaults to center", () => {
+      const text = "some text"
+      const { getByText } = render(<BanquetCell>{text}</BanquetCell>)
+      expect(getByText(text)).toHaveStyle("justify-content: center")
+   })
+   it("left hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(<BanquetCell hAlign="left">{text}</BanquetCell>)
+      expect(getByText(text)).toHaveStyle("justify-content: flex-start")
+   })
+   it("right hAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(<BanquetCell hAlign="right">{text}</BanquetCell>)
+      expect(getByText(text)).toHaveStyle("justify-content: flex-end")
+   })
+   it("vAlign defaults to center", () => {
+      const text = "some text"
+      const { getByText } = render(<BanquetCell>{text}</BanquetCell>)
+      expect(getByText(text)).toHaveStyle("align-items: center")
+   })
+   it("top vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(<BanquetCell vAlign="top">{text}</BanquetCell>)
+      expect(getByText(text)).toHaveStyle("align-items: flex-start")
+   })
+   it("bottom vAlign renders properly", () => {
+      const text = "some text"
+      const { getByText } = render(<BanquetCell vAlign="bottom">{text}</BanquetCell>)
+      expect(getByText(text)).toHaveStyle("align-items: flex-end")
+   })
 })
