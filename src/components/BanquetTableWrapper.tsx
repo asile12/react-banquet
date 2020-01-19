@@ -1,6 +1,6 @@
 import React from "react"
 import ErrorBoundary from "../errorHandling/ErrorBoundary"
-import { BanquetTableProps } from "../types/BanquetTableProps"
+import BanquetTableProps from "../types/BanquetTableProps"
 import BanquetTable from "./BanquetTable"
 
 const BanquetTableWrapper = (props: BanquetTableProps) => {

@@ -1,5 +1,5 @@
 import React from "react"
-import { BanquetCellProps } from "../types/BanquetCellProps"
+import BanquetCellProps from "../types/BanquetCellProps"
 import { StyledBanquetCell } from "../style/StyledBanquetCell"
 
 const BanquetCell = ({

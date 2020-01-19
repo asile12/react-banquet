@@ -1,8 +1,7 @@
 import { ReactNode } from "react"
-import { VerticalAlign } from "./VerticalAlign"
-import { HorizontalAlign } from "./HorizontalAlign"
+import { VerticalAlign, HorizontalAlign } from "./Aliases"
 
-export interface BanquetCellProps {
+export default interface BanquetCellProps {
    children?: ReactNode
    header?: boolean
    className?: string

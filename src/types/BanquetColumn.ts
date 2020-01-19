@@ -1,7 +1,6 @@
-import { VerticalAlign } from "./VerticalAlign"
-import { HorizontalAlign } from "./HorizontalAlign"
+import { VerticalAlign, HorizontalAlign, FormattingFunction } from "./Aliases"
 
-export interface BanquetColumn {
+export default interface BanquetColumn {
    width?: string
    className?: string
    vAlign?: VerticalAlign

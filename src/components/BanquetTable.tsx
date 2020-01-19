@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { BanquetTableProps } from "../types/BanquetTableProps"
+import BanquetTableProps  from "../types/BanquetTableProps"
 import { StyledBanquetTable } from "../style/StyledBanquetTable"
 import { CustomError } from "../errorHandling/CustomError"
 import BanquetRow from "./BanquetRow"

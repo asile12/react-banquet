@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react"
-import { BanquetRowWrapperProps } from "../types/BanquetRowWrapperProps"
+import  BanquetRowWrapperProps  from "../types/BanquetRowWrapperProps"
 
 const BanquetRow = ({
    children,

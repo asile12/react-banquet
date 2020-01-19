@@ -1,6 +1,5 @@
 import styled from "styled-components"
-import { VerticalAlign } from "../types/VerticalAlign"
-import { HorizontalAlign } from "../types/HorizontalAlign"
+import { VerticalAlign, HorizontalAlign } from "../types/Aliases"
 
 interface StyledBanquetCell {
    className?: string

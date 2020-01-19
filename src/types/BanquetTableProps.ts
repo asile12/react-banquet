@@ -1,10 +1,8 @@
-import { Border } from "./Border"
 import { ReactNode } from "react"
-import { BanquetColumn } from "./BanquetColumn"
-import { VerticalAlign } from "./VerticalAlign"
-import { HorizontalAlign } from "./HorizontalAlign"
+import BanquetColumn from "./BanquetColumn"
+import { Border, VerticalAlign, HorizontalAlign } from "./Aliases"
 
-export interface BanquetTableProps {
+export default interface BanquetTableProps {
    children: ReactNode
    borders?: Border
    className?: string

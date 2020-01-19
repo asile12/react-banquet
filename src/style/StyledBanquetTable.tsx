@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { Border } from "../types/Border"
+import { Border } from "../types/Aliases"
 
 interface StyledBanquetTable {
    numberOfColumns: number
