@@ -274,4 +274,31 @@ describe("Banquet Table: other tests", () => {
          )
       }).toThrow(error)
    })
+
+   it("formats data according to formatting property", () => {
+      const column1Formatting = (value: number) => `${value} KB`
+      const column2Formatting = (value: string) => <div>{value}</div>
+      const { getByTestId } = render(
+         <BanquetTable
+            columnProps={[{ formatting: column1Formatting }, { formatting: column2Formatting }, {}]}
+         >
+            <BanquetRow>
+               <BanquetCell data-testid="cell1">1000</BanquetCell>
+               <BanquetCell data-testid="cell2">big</BanquetCell>
+               <BanquetCell data-testid="cell3">3test</BanquetCell>
+            </BanquetRow>
+            <BanquetRow>
+               <BanquetCell data-testid="cell4">255</BanquetCell>
+               <BanquetCell data-testid="cell5">biggg</BanquetCell>
+               <BanquetCell data-testid="cell6">6test</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByTestId("cell1")).toHaveTextContent("1000 KB")
+      expect(getByTestId("cell2").innerHTML).toBe("<div>big</div>")
+      expect(getByTestId("cell3")).toHaveTextContent("3test")
+      expect(getByTestId("cell4")).toHaveTextContent("255 KB")
+      expect(getByTestId("cell5").innerHTML).toBe("<div>biggg</div>")
+      expect(getByTestId("cell6")).toHaveTextContent("6test")
+   })
 })

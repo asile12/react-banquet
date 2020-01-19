@@ -5,4 +5,6 @@ export default interface BanquetColumn {
    className?: string
    vAlign?: VerticalAlign
    hAlign?: HorizontalAlign
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   formatting?: FormattingFunction
 }

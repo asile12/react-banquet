@@ -13,4 +13,6 @@ export default interface BanquetRowProps {
    rowHAlign: HorizontalAlign
    columnHAlign?: (HorizontalAlign | undefined)[]
    columnVAlign?: (VerticalAlign | undefined)[]
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   columnFormatting?: (FormattingFunction | undefined)[]
 }

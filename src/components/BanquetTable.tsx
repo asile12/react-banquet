@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import BanquetTableProps  from "../types/BanquetTableProps"
+import BanquetTableProps from "../types/BanquetTableProps"
 import { StyledBanquetTable } from "../style/StyledBanquetTable"
 import { CustomError } from "../errorHandling/CustomError"
 import BanquetRow from "./BanquetRow"
@@ -35,6 +35,7 @@ const BanquetTable = ({
             className: column.className !== undefined ? column.className : "",
             vAlign: column.vAlign,
             hAlign: column.hAlign,
+            formatting: column.formatting,
          }
       })
    }
@@ -52,6 +53,7 @@ const BanquetTable = ({
                     columnClassNames={columnProps.map(column => column.className)}
                     columnHAlign={columnProps.map(column => column.hAlign)}
                     columnVAlign={columnProps.map(column => column.vAlign)}
+                    columnFormatting={columnProps.map(column => column.formatting)}
                     header={row.props.header}
                     className={row.props.className}
                  >

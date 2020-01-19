@@ -14,9 +14,10 @@ const BanquetRow = ({
    rowHAlign,
    columnHAlign,
    columnVAlign,
+   columnFormatting,
    ...props
 }: BanquetRowProps) => {
-   const numberOfChildren = React.Children.count(children)
+   // edit BanquetCells props
    const newChildren = React.Children.map(children, (cell: ReactElement, index) => {
       return React.cloneElement(cell, {
          className: [
@@ -41,8 +42,15 @@ const BanquetRow = ({
                : rowVAlign !== undefined
                ? rowVAlign
                : tableVAlign,
+         children:
+            columnFormatting !== undefined && columnFormatting[index] !== undefined
+               ? columnFormatting[index](cell.props.children)
+               : cell.props.children,
       })
    })
+
+   // add BanquetCells so that all rows have the same number of children
+   const numberOfChildren = React.Children.count(children)
    const childrenToAdd = [] as ReactElement[]
    for (let i = maxNumberOfCells - numberOfChildren; i > 0; i--) {
       childrenToAdd.push(
