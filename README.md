@@ -12,7 +12,7 @@ or
 
 ## Peer dependencies
 
-Banquet depends on **react >=16.8** and **styled-components**, so you will have to have those installed.
+Banquet depends on **react ^16.8** and **styled-components ^4.0.1**, so you will have to have those installed.
 
 ## Basic Table
 
