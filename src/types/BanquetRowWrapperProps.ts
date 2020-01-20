@@ -7,4 +7,5 @@ export default interface BanquetRowWrapperProps {
    className?: string
    vAlign?: VerticalAlign
    hAlign?: HorizontalAlign
+   rowHeight?: string
 }

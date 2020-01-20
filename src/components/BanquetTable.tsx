@@ -85,12 +85,18 @@ const BanquetTable = ({
       columnWidths = columnProps.map(object => object.width).join(" ")
    }
 
+   // create row height array
+   const rowHeights = React.Children.map(children, (row: ReactElement) =>
+      row.props.rowHeight !== undefined ? row.props.rowHeight : "auto"
+   )
+
    return (
       <StyledBanquetTable
          className={`banquet ${className}`}
          numberOfColumns={maxNumberOfCells}
          borders={borders}
          columnWidths={columnWidths}
+         rowHeights={rowHeights.join(" ")}
          {...props}
       >
          {newChildren}

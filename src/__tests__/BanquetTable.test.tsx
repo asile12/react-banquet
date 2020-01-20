@@ -55,6 +55,29 @@ describe("Banquet Table: style tests", () => {
       )
       expect(getByTestId("table")).toHaveStyle("grid-template-columns: auto")
    })
+   it("converts undefined height to auto", () => {
+      const { getByTestId } = render(
+         <BanquetTable data-testid="table">
+            <BanquetRow>
+               <BanquetCell>text</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByTestId("table")).toHaveStyle("grid-template-rows: auto")
+   })
+   it("rowHeights is processed correctly", () => {
+      const { getByTestId } = render(
+         <BanquetTable data-testid="table">
+            <BanquetRow rowHeight="200px">
+               <BanquetCell>text</BanquetCell>
+            </BanquetRow>
+            <BanquetRow rowHeight="5em">
+               <BanquetCell>text</BanquetCell>
+            </BanquetRow>
+         </BanquetTable>
+      )
+      expect(getByTestId("table")).toHaveStyle("grid-template-rows: 200px 5em")
+   })
    it("sets all columns' width to auto if columnProps is undefined", () => {
       const { getByTestId } = render(
          <BanquetTable data-testid="table">
