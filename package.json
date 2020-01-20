@@ -1,6 +1,6 @@
 {
    "name": "react-banquet",
-   "version": "0.2.0",
+   "version": "0.3.0",
    "description": "Data tables for React with css-grid",
    "main": "build/index.js",
    "scripts": {
