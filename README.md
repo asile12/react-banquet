@@ -71,6 +71,24 @@ The className property can be set on BanquetTable, BanquetRow or BanquetCell.
 On BanquetTable, the className will affect the _table outer div_.  
 On BanquetRow and BanquetCell, the className will affect the cells.
 
+## Row height
+
+The can set the row's height by setting the _rowHeight_ property on BanquetRow. 
+It accepts all values accepted by css property "display: grid", such as px, %, fr, minmax(), auto. For a complete reference see [the official docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows).
+It defaults to _auto_, which means height will be based on content.
+
+```JSX
+<BanquetTable>
+  <BanquetRow header rowHeight="100px">
+    <BanquetCell>my header<BanquetCell/>
+  <BanquetRow/>
+  <BanquetRow rowHeight="minmax(1em, 3em)">
+    <BanquetCell>content<BanquetCell/>
+  <BanquetRow/>
+<BanquetTable />
+```
+
+
 ## Horizontal and vertical alignment
 
 BanquetTable, BanquetRow and BanquetCell all accept a _hAlign_ (horizontal alignment) and _vAlign_ (vertical alignment) property. Defaults to _center_.
@@ -89,6 +107,7 @@ The properties you can set are:
 -  **className**: a className to apply to the elements of a single column.
 -  **hAlign**: the column's cells' horizontal alignment. Can be set to _right_, _left_ or _center_.
 -  **vAlign**: the column's cells' vertical alignment. Can be set to _top_, _bottom_ or _center_.
+- **formatting**: a formatting function that will be applied to all the cells in the column.
 
 ```JSX
 const columns = [
@@ -99,13 +118,14 @@ const columns = [
   {
     width:"250px",
     className:"my-class"
+    formatting:(BanquetCellChildren)=>`${BanquetCellChildren} KB`
   },
 ]
 
 <BanquetTable columnProps={columns}>
   <BanquetRow>
-    <BanquetCell>content<BanquetCell/>
-    <BanquetCell>content<BanquetCell/>
+    <BanquetCell>File size:<BanquetCell/>
+    <BanquetCell>1000<BanquetCell/>
   <BanquetRow/>
 <BanquetTable />
 ```
@@ -134,7 +154,7 @@ The ? mark refers to an optional property.
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------ |
 | children     | BanquetRow nodes                                                                                                                                                                                             |                                                   | The rows of the table                      |
 | borders?     | "all" &#124; "none" &#124; "horizontal" &#124; "vertical" &#124; "outer" &#124; "inner" &#124;<br/>"horizontal-inner" &#124; "vertical-inner" &#124; "horizontal-outer" &#124; "vertical-outer"              | "all"                                             | The visible borders                        |
-| columnProps? | { <br/>&nbsp;&nbsp;width?: string<br/>&nbsp;&nbsp;className?: string<br/>&nbsp;&nbsp;hAlign?: "left" &#124; "center" &#124; "right"<br/>&nbsp;&nbsp;vAlign?: "top" &#124; "center" &#124; "bottom" <br/>}[ ] | width: auto<br/>hAlign: center<br/>vAlign: center | The columns' properties                    |
+| columnProps? | { <br/>&nbsp;&nbsp;width?: string<br/>&nbsp;&nbsp;className?: string<br/>&nbsp;&nbsp;hAlign?: "left" &#124; "center" &#124; "right"<br/>&nbsp;&nbsp;vAlign?: "top" &#124; "center" &#124; "bottom" <br/>&nbsp;&nbsp;formatting?: (CellChildren: any) => ReactNode<br/>}[ ] | width: auto<br/><br/>hAlign: center<br/>vAlign: center | The columns' properties                    |
 | className?   | string                                                                                                                                                                                                       |                                                   | A className to apply to the table          |
 | hAlign?      | "left" &#124; "center" &#124; "right"                                                                                                                                                                        | "center"                                          | Horizontal alignment to apply to the table |
 | vAlign?      | "top" &#124; "center" &#124; "bottom"                                                                                                                                                                        | "center"                                          | Vertical alignment to apply to the table   |
@@ -148,6 +168,7 @@ The ? mark refers to an optional property.
 | className? | string                                |          | A className to apply to all the cells in that row          |
 | hAlign?    | "left" &#124; "center" &#124; "right" | "center" | Horizontal alignment to apply to the row                   |
 | vAlign?    | "top" &#124; "center" &#124; "bottom" | "center" | Vertical alignment to apply to the row                     |
+| rowHeight?    | string | auto | The row's height                     |
 
 ### BanquetCell
 
