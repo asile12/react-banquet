@@ -8,7 +8,6 @@ interface StyledBanquetCell {
 }
 export const StyledBanquetCell = styled.div<StyledBanquetCell>`
    display: flex;
-   height: 200px;
 
    align-items: ${props =>
       props.vAlign === "top" ? "flex-start" : props.vAlign === "bottom" ? "flex-end" : "center"};
