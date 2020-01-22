@@ -21,11 +21,11 @@ import {BanquetTable, BanquetRow, BanquetCell} from "react-banquet"
 
 <BanquetTable>
   <BanquetRow>
-    <BanquetCell>content<BanquetCell/>
-    <BanquetCell>content<BanquetCell/>
-    <BanquetCell>content<BanquetCell/>
-  <BanquetRow/>
-<BanquetTable />
+    <BanquetCell>content</BanquetCell>
+    <BanquetCell>content</BanquetCell>
+    <BanquetCell>content</BanquetCell>
+  </BanquetRow>
+</BanquetTable>
 ```
 
 ## Borders
@@ -55,14 +55,14 @@ This will add a "header" className to a single cell or all the cells in a row.
 ```JSX
 <BanquetTable>
   <BanquetRow header>
-    <BanquetCell>my header 1<BanquetCell/>
-    <BanquetCell>my header 2<BanquetCell/>
-  <BanquetRow/>
+    <BanquetCell>my header 1</BanquetCell>
+    <BanquetCell>my header 2</BanquetCell>
+  </BanquetRow>
   <BanquetRow>
-    <BanquetCell>content<BanquetCell/>
-    <BanquetCell>content<BanquetCell/>
-  <BanquetRow/>
-<BanquetTable />
+    <BanquetCell>content</BanquetCell>
+    <BanquetCell>content</BanquetCell>
+  </BanquetRow>
+</BanquetTable>
 ```
 
 ## ClassNames
@@ -80,12 +80,12 @@ It defaults to _auto_, which means height will be based on content.
 ```JSX
 <BanquetTable>
   <BanquetRow header rowHeight="100px">
-    <BanquetCell>my header<BanquetCell/>
-  <BanquetRow/>
+    <BanquetCell>my header</BanquetCell>
+  </BanquetRow>
   <BanquetRow rowHeight="minmax(1em, 3em)">
-    <BanquetCell>content<BanquetCell/>
-  <BanquetRow/>
-<BanquetTable />
+    <BanquetCell>content</BanquetCell>
+  </BanquetRow>
+</BanquetTable>
 ```
 
 
@@ -124,10 +124,10 @@ const columns = [
 
 <BanquetTable columnProps={columns}>
   <BanquetRow>
-    <BanquetCell>File size:<BanquetCell/>
-    <BanquetCell>1000<BanquetCell/>
-  <BanquetRow/>
-<BanquetTable />
+    <BanquetCell>File size:</BanquetCell>
+    <BanquetCell>1000</BanquetCell>
+  </BanquetRow>
+</BanquetTable>
 ```
 
 ## Styling with stylesheets
