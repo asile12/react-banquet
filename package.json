@@ -1,6 +1,6 @@
 {
    "name": "react-banquet",
-   "version": "0.3.1",
+   "version": "0.4.0",
    "description": "Data tables for React with css-grid",
    "main": "build/index.js",
    "types": "build/index.d.ts",
@@ -11,9 +11,9 @@
       "test": "jest && codecov",
       "lint": "eslint . --ext .ts,.tsx",
       "copycss": "rm -rf build/css && mkdir build/css && cp -r src/style/*.css build/css",
-      "prerelease":"yarn version && yarn merge-dev-into-master",
+      "prerelease": "yarn version && yarn merge-dev-into-master",
       "release": "yarn build && npm publish",
-      "postrelease":"echo 'Your release has been successful'",
+      "postrelease": "echo 'Your release has been successful'",
       "merge-dev-into-master": "git push && git checkout master && git merge dev --ff-only && git push"
    },
    "repository": {
