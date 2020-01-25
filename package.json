@@ -6,10 +6,15 @@
    "types": "build/index.d.ts",
    "scripts": {
       "start": "webpack --watch",
-      "build": "yarn run lint && yarn run copycss && webpack",
+      "prebuild": "yarn lint && yarn test",
+      "build": "rm -rf build && mkdir build && yarn run copycss && webpack",
       "test": "jest && codecov",
       "lint": "eslint . --ext .ts,.tsx",
-      "copycss": "rm -rf build/css && mkdir build/css && cp -r src/style/*.css build/css"
+      "copycss": "rm -rf build/css && mkdir build/css && cp -r src/style/*.css build/css",
+      "prerelease":"yarn version && yarn merge-dev-into-master",
+      "release": "yarn build && npm publish",
+      "postrelease":"echo 'Your release has been successful'",
+      "merge-dev-into-master": "git push && git checkout master && git merge dev --ff-only && git push"
    },
    "repository": {
       "type": "git",
