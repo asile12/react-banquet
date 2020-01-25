@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 import BanquetRowProps from "../types/BanquetRowProps"
-import BanquetCell from "./BanquetCell"
+import { BanquetCell } from "./BanquetCell"
 
 const BanquetRow = ({
    children,

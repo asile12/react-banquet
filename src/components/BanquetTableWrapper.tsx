@@ -3,7 +3,7 @@ import ErrorBoundary from "../errorHandling/ErrorBoundary"
 import BanquetTableProps from "../types/BanquetTableProps"
 import BanquetTable from "./BanquetTable"
 
-const BanquetTableWrapper = (props: BanquetTableProps) => {
+export const BanquetTableWrapper = (props: BanquetTableProps) => {
    return (
       <ErrorBoundary>
          <BanquetTable {...props}>{props.children}</BanquetTable>
@@ -11,4 +11,3 @@ const BanquetTableWrapper = (props: BanquetTableProps) => {
    )
 }
 
-export default BanquetTableWrapper

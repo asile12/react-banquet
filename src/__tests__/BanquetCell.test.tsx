@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import BanquetCell from "../components/BanquetCell"
+import { BanquetCell } from "../components/BanquetCell"
 import "@testing-library/jest-dom/extend-expect"
 
 describe("Banquet Cell", () => {

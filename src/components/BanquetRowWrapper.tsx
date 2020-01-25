@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react"
-import  BanquetRowWrapperProps  from "../types/BanquetRowWrapperProps"
+import BanquetRowWrapperProps from "../types/BanquetRowWrapperProps"
 
-const BanquetRow = ({
+export const BanquetRowWrapper = ({
    children,
    header,
    className = "",
@@ -10,5 +10,3 @@ const BanquetRow = ({
    vAlign,
    ...props
 }: BanquetRowWrapperProps) => <></>
-
-export default BanquetRow

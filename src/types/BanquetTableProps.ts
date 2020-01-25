@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import BanquetColumn from "./BanquetColumn"
+import { BanquetColumn } from "./BanquetColumn"
 import { Border, VerticalAlign, HorizontalAlign } from "./Aliases"
 
 export default interface BanquetTableProps {

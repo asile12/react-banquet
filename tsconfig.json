@@ -8,7 +8,8 @@
       "jsx": "react",
       "removeComments": true,
       "esModuleInterop": true,
-      "isolatedModules": true
+      "isolatedModules": true,
+      "declaration": true
    },
    "include": ["./src/**/**/*"]
 }

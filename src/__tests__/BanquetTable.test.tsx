@@ -2,8 +2,8 @@ import React from "react"
 import { render } from "@testing-library/react"
 import BanquetTable from "../components/BanquetTable"
 import "@testing-library/jest-dom/extend-expect"
-import BanquetRow from "../components/BanquetRowWrapper"
-import BanquetCell from "../components/BanquetCell"
+import { BanquetRowWrapper as BanquetRow } from "../components/BanquetRowWrapper"
+import { BanquetCell } from "../components/BanquetCell"
 import { CustomError } from "../errorHandling/CustomError"
 
 describe("Banquet Table: style tests", () => {

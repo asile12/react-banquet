@@ -1,8 +1,8 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import BanquetRow from "../components/BanquetRowWrapper"
+import { BanquetRowWrapper as BanquetRow } from "../components/BanquetRowWrapper"
 import "@testing-library/jest-dom/extend-expect"
-import BanquetCell from "../components/BanquetCell"
+import { BanquetCell } from "../components/BanquetCell"
 import BanquetTable from "../components/BanquetTable"
 
 describe("Banquet Row", () => {

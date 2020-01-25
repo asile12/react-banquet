@@ -2,7 +2,7 @@ import React from "react"
 import BanquetCellProps from "../types/BanquetCellProps"
 import { StyledBanquetCell } from "../style/StyledBanquetCell"
 
-const BanquetCell = ({
+export const BanquetCell = ({
    children,
    header = false,
    className = "",
@@ -24,5 +24,3 @@ const BanquetCell = ({
       </StyledBanquetCell>
    )
 }
-
-export default BanquetCell
