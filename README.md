@@ -155,6 +155,10 @@ However, you can import one of the default stylesheets to get you started.
 ```
 import "react-banquet/build/css/react-banquet-minimal-style.css";
 ```
+or
+```
+import "react-banquet/build/css/react-banquet-material-style.css";
+```
 
 Or, instead of a default stylesheet you can write your own. We have assigned some default classes to all the elements to make the job easier.
 
